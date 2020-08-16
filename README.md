@@ -1,3 +1,3 @@
-# hdgmethods
+# Hybridizable Discontinuous Galerkin Methods
 
 # Manuel
