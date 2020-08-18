@@ -13084,6 +13084,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://epubs.siam.org/doi/abs/10.1137/S0036142901384162">Unified Analysis of Discontinuous Galerkin Methods for Elliptic Problems</a></p>
 <p>Consideramos el problema eliptico</p>
 \begin{equation}
 \begin{array}{rclll}
@@ -13117,9 +13118,9 @@ div#notebook {
 \begin{equation}
 \begin{array}{rcl}
 V_h &amp;=&amp; \{ v\in [L_2(\Omega)]^d: v|_{K}\in V(K)\,\forall K\in \mathcal T_h\} \\
-W_h &amp;=&amp; \{ w\in L_2(\Omega): w|_{K}\in V(K)\,\forall K\in \mathcal T_h\} 
+W_h &amp;=&amp; \{ w\in L_2(\Omega): w|_{K}\in W(K)\,\forall K\in \mathcal T_h\} 
 \end{array}
-\end{equation}<p>donde $V(K)$ y $W(K)$ son espacios de approximacion locales (polinomiales).</p>
+\end{equation}<p>donde $V(K)$ y $W(K)$ son espacios de approximacion locales (polinomiales). Por ejemplo $V(K) = [\mathcal P_0]^{d}$ y $\mathcal P_0(K)$.</p>
 <p>Asi consideramos la siguiente formulacion. Hallar $(q_h, u_h)\in V_h\times W_h$ tal que
 \begin{equation}
 \begin{array}{rcl}

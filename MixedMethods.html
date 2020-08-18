@@ -13133,7 +13133,8 @@ H(\mbox{div},\Omega) &amp;=&amp; \{ v\in [L_2(\Omega)]^{d}: \mbox{div}(w)\in L_2
 \displaystyle l(v,w) &amp;:=&amp;
 \displaystyle \int_{\partial \Omega_{D}} u_{D}v \cdot n ds - \int_{\Omega} f v \,dx
 \end{array}
-\end{equation}<p>Observemos que la forma bilineal $b$ no es coerciva, por lo tanto su analisis y la eleccion de los espacios de eleemtnos finitos no tan simple como en el caso de la formulacion primal y el metodo de elementos finitos standard.</p>
+\end{equation}<p>Observemos que la forma bilineal $b$ no es coerciva, por lo tanto su analisis y la eleccion de los espacios de elemetnos finitos no tan simple como en el caso de la formulacion primal y el metodo de elementos finitos standard.</p>
+<p><a href="https://www.ams.org/journals/bull/2010-47-02/S0273-0979-10-01278-4/S0273-0979-10-01278-4.pdf">Finite Element Exterior Calculus: from Hodge theory to numerical stability</a></p>
 
 </div>
 </div>
@@ -13171,8 +13172,8 @@ W_h &amp;=&amp; \{w\in L_2(\Omega): w|_K \in \mathcal P_0, \, \forall K\in \math
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">netgen.geom2d</span> <span class="kn">import</span> <span class="n">unit_square</span>
-<span class="kn">from</span> <span class="nn">ngsolve</span> <span class="kn">import</span> <span class="o">*</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">netgen.geom2d</span> <span class="k">import</span> <span class="n">unit_square</span>
+<span class="kn">from</span> <span class="nn">ngsolve</span> <span class="k">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">netgen.gui</span>
 
 <span class="n">mesh</span> <span class="o">=</span> <span class="n">Mesh</span><span class="p">(</span><span class="n">unit_square</span><span class="o">.</span><span class="n">GenerateMesh</span><span class="p">(</span><span class="n">maxh</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
