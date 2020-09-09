@@ -12,4 +12,4 @@
 ### Tareas:
 - [Tarea 1](Tarea1.pdf), [solucion](tarea1_solution.html)
 - [Tarea 2](Tarea2.pdf), 
-- [Tarea3]
+
