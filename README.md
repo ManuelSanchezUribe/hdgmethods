@@ -1,6 +1,6 @@
 # Hybridizable Discontinuous Galerkin Methods
 
-Contenidos del curso IMT 3800 Topicos Avanzados de Ingeniera Matematica
+### Contenidos del curso IMT 3800 Topicos Avanzados de Ingeniera Matematica
 
 1. [Finite element method 1d](FEM1D.html)
 2. [Metodos mixtos](MixedMethods.html)
@@ -9,7 +9,7 @@ Contenidos del curso IMT 3800 Topicos Avanzados de Ingeniera Matematica
 5. [HDG en NGSolve para Poisson 1d](poisson_hdg_1d.html)
 
 
-Tareas:
+### Tareas:
 - [Tarea1](Tarea1.pdf), [solucion](tarea1_solution.html)
 - [Tarea2](Tarea2.pdf), 
 - [Tarea3]
