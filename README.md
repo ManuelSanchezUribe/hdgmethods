@@ -8,7 +8,7 @@
 4. [Metodos de Galerkin discontinuo hibridos en 1d](HDG1d.html)
 5. [HDG en NGSolve para Poisson 1d](poisson_hdg_1d.html)
 6. [Linear elasticity 3d NGSolve](linear_elasticity_3d.html)
-
+7. [Planar linear elasticity and locking](planar_linear_elasticity_locking.html)
 
 ### Tareas:
 - [Tarea 1](Tarea1.pdf), [solucion](Tarea1-solucion.pdf)
