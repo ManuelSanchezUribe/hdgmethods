@@ -8,6 +8,7 @@
 4. [Metodo de Galerkin discontinuo hibridos (HDG) en 1d](HDG1d.html)
 5. [Metodo de Galerkin discontinuo hibridos (HDG) para Poisson 1d con NGSolve](poisson_hdg_1d.html)
 6. [Metodo de elementos finitos para elasticidad lineal en 3d con NGSolve](linear_elasticity_3d.html)
+   [test de convergencia](fem_linear_elasticity3d_convergence_test.html)
 7. [Metodo de elementos finitos para elasticidad lineal plana y el problema de locking con NGSolve](planar_linear_elasticity_locking.html)
 
 ### Tareas:
