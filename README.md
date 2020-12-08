@@ -14,5 +14,5 @@
 ### Tareas:
 - [Tarea 1](Tarea1.pdf), [solucion](Tarea1-solucion.pdf)
 - [Tarea 2](Tarea2.pdf), [solucion](Tarea2_solution.pdf)
-- [Tarea 3](Tarea3.pdf), [solucion]
+- [Tarea 3](Tarea3.pdf), [solucion](Tarea3_solution.pdf)
 
