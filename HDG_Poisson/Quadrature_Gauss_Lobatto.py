@@ -6,7 +6,10 @@ def GaussLobatto_Points_Weights(npoints):
     Input  : number of Gauss Lobatto points
     Output : x, Points and w, Weights
     '''
-    if npoints == 3:
+    if npoints == 2:
+        x = np.array([-1.0,1.0], dtype=np.float64)
+        w = np.array([1.0/2.0,  1.0/2.0], dtype=np.float64)
+    elif npoints == 3:
         x = np.array([-1.0,0,1.0], dtype=np.float64)
         w = np.array([1.0/3.0, 4.0/3.0, 1.0/3.0], dtype=np.float64)
     elif npoints == 4:
@@ -33,7 +36,7 @@ def GaussLobatto_Points_Weights(npoints):
         w = np.array([1.0/21.0, bw, aw, 256.0/525.0, aw, bw, 1.0/21.0], dtype=np.float64)
     else:
         # if npoints < 3 or npoints > 7:
-        raise ValueError(' Incorrect number of points.  3 <= npoints <= 7')
+        raise ValueError(' Incorrect number of points, must be  2 <= npoints <= 7')
     return x, w
 
 def GaussLobattoquad(npoints,fun):
@@ -56,7 +59,7 @@ def GaussLobattoquad_vals(fvals):
     Gauss-Lobatto quadrature rule on [-1,1]
     This quadrature includes 
     This quadrature is exact for polynomials of order 2n-3
-    Input  : values f(xj) where xj are the Gauss Lobatto point for j=1,..., npoints 
+    Input  : values f(xj) where xj are the Gauss Lobatto points for j=1,..., npoints 
     Output : approximation to the integral of f(x), -1 <= x <= 1, using the values f(xj)
     ''' 
     # obtain auss Lobatto quadrature points and weights
@@ -78,3 +81,7 @@ def Vandermonde1d(N,r):
     for j in range(N+1):
         V1d[:,j] = eval_jacobi(r, 0, 0, j)
     return V1d
+
+def GaussLobattoMass(N,r):
+    V = Vandermonde1d(N,r)
+    return np.linalg.inv(V@V.T)

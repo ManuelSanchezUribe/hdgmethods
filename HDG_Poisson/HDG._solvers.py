@@ -18,34 +18,81 @@ class HDG_solver:
     def add_problem(self, poisson_problem=None):
         self.problem = poisson_problem
     
-    def HDG_spaces(self):
-        self.Wh = None
-        self.Vh = None
-        self.Mh = None
+    def HDG_spaces(self, order):
+        self.Wh = []
+        self.Vh = []
+        self.Mh = []
+
+        # dimension on each element
+        self.Vh['localdim'] = order+1
+        self.Wh['localdim'] = order+1
+        self.Mh['localdim'] = 2
+        # Global dimension of the space
+        self.Vh['dim'] = self.mesh.NE * self.Vh['localdim']
+        self.Wh['dim'] = self.mesh.NE * self.Wh['localdim']
+        self.Mh['dim'] = self.mesh.NN
+        
         #  we need Gauss Lobatto basis
     
-    def Solver(self):
+    def Solver(self, problem):
 
+        b = np.zeros(self.Mh['dim'], dtype=np.float64)
+        A = np.zeros((self.Mh['dim'], self.Mh['dim']), dtype=np.float64)
         for j in range(self.mesh.NE):
             # local element
-            K = self.mesh.Coordinates[self.mesh.Elements[j,:]]
+            dof = self.mesh.Elements[j,:]
+            K = self.mesh.Coordinates[dof]
 
             # local system
-            QK, bK = self.LocalSystem()
+            AK, bK, _ = self.LocalSystem(K, cK, fK)
+
+            # Global Assembling
+            b[dof] += bK
+            A[dof,dof] += AK 
+
+        # Solve
+        uhat = np.zeros(self.Mh['dim'])
+        # Impose Dirichlet boundary condition
+        Dirichletdof = [0, self.Mh['dim']-1]
+        for j in Dirichletdof:
+            uhat[j] = problem.uD(self.mesh.Coordinates[j])
+        b -= A.dot(uhat)
+        Freedof = np.setdiff1d(range(0, self.Mh['dim']), Dirichletdof)
+        AFree = A[Freedof,:][:,Freedof]
+        bFree = b[Freedof]
+        uhat[Freedof] = np.linalg.solve(AFree, bFree)
+
 
 
     def LocalSystem(self, K, cj, fj):
+        # Local Matricres for order = 0
+        hK = np.abs(K[1]-K[0])
+        # B: (uh, div(r))
+        B = np.zeros((self.Vh['localdim'], self.Wh['localdim']))
+        # M: (qh, r)
+        M = np.zeros((self.Vh['localdim'], self.Vh['localdim']))
+        Mhat = 
+        M = 0.5*hK*Mhat
+        # S: ( uh, v)
+        S = np.zeros((self.Wh['localdim'], self.Wh['localdim']))
+        # E: (uh, mu)
+        E = np.zeros((self.Mh['localdim'], self.Wh['localdim']))
+        # C: (qh*n, mu)
+        C = np.zeros((self.Mh['localdim'], self.Vh['localdim']))
+        # G: (uhat, mu)
+        G = np.zeros((self.Mh['localdim'], self.Mh['localdim']))
+
+        Q = np.vstack(( np.hstack(( M, -B.T)),  np.hstack(( B, S)) ))
+        CE = np.hstack(( C, E ))
+        R = np.linalg.solve(Q, np.vstack(( C.T, -E.T )))
+        A =  -CE @ R - G
+        Rb = np.linalg.solve(Q, np.hstack((self.Vh['localdim'], F )))
+        b = -CE @ Rb
+        return A, b, Q
+
 
     
 def massmatrix(self, c=None):
 
-from scipy.special import eval_jacobi
 
-def Vandermonde1d(npoints,r):
-    V1d = np.zeros(r.size, npoints+1)
 
-    x, w = GaussLobatto_Points_Weights(npoints)
-
-    for j in range(npoints):
-        V1d[:,j] = eval_jacobi(x, 0,0 ,j)
-    return V1d
